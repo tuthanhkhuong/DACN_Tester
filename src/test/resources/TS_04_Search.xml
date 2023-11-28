@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TS_04_Search">
+  <test name="TS_04_Search">
+  <parameter name="browser" value="chrome"></parameter>
+    <classes>
+      <class name="com.nopcommerce.demo.TS_04_Search"/>
+    </classes>
+  </test> <!-- TS_04_Search -->
+</suite> <!-- TS_04_Search -->

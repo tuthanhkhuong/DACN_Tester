@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TS_03_MyAccount">
+	<test name="TS_03_MyAccount">
+		<parameter name="browser" value="chrome"></parameter>
+		<classes>
+			<class name="com.nopcommerce.demo.TS_03_MyAccount" />
+		</classes>
+	</test> <!-- TS_03_MyAccount -->
+</suite> <!-- TS_03_MyAccount -->

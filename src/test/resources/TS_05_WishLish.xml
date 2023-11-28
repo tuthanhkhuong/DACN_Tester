@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TS_05_WishLish">
+  <test name="TS_05_WishLish">
+  <parameter name="browser" value="chrome"></parameter>
+    <classes>
+      <class name="com.nopcommerce.demo.TS_05_WishList"/>
+    </classes>
+  </test> <!-- TS_05_WishLish -->
+</suite> <!-- TS_05_WishLish -->
+

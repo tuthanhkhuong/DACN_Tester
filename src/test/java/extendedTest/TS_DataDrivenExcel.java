@@ -89,6 +89,7 @@ public class TS_DataDrivenExcel extends BaseTest {
 //			ExcelUtil.setCellData("Failed", 1, 3);
 //		}
 		
+		
 		// Chạy vòng lặp, duyệt hết tất cả record trong Sheet
 		for(int i = 1; i <= ExcelUtilLogin.getRowCountInSheet(); i++) {
 			String excelEmail = ExcelUtilLogin.getCellData(i, 1);

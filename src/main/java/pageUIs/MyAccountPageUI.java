@@ -18,6 +18,8 @@ public class MyAccountPageUI {
 	public static final String MYACCOUNT_COMPANYNAME_TEXTBOX = "//input[@id='Company']";
 
 	public static final String MYACCOUNT_SAVE_BUTTON = "//button[@id='save-info-button']";
+	public static final String MYACCOUNT_SUCCESS_MESSAGE = "//p[@class='content']";
+	//span[@id='FirstName-error']
 
 	// -------------Login page-------------
 	public static final String EMAIL_TEXTBOX = "//input[@id='Email']";

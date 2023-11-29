@@ -174,9 +174,18 @@ public class MyAccountPageObject extends BasePage {
 	public void clickToAddressesLabel() {
 		clickToElement(driver, MyAccountPageUI.MYACCOUNT_ADDRESSES_LABEL);
 	}
+	
+	public void clickToMyAccountLabel() {
+		clickToElement(driver, MyAccountPageUI.MYACCOUNT_LINK);
+	}
 
 	public boolean isLoged(String value) {
 		String message = getTextElement(driver, MyAccountPageUI.MYACCOUNT_LINK);
+		return message.contains(value);
+	}
+	
+	public boolean isSaveSuccessAccountMessage(String value) {
+		String message = getTextElement(driver, MyAccountPageUI.MYACCOUNT_SUCCESS_MESSAGE);
 		return message.contains(value);
 	}
 

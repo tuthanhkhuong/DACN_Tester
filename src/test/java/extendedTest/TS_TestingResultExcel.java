@@ -222,11 +222,11 @@ public class TS_TestingResultExcel extends BaseTest {
 		
 		searchPage.inputToSearchTextBox("Lenovo@<>?");
 		
-		sleepInSecond(3000);
+//		sleepInSecond(3000);
 		
 		searchPage.clickToSearchButton();
 		
-		sleepInSecond(3000);
+//		sleepInSecond(3000);
 
 		String messString = searchPage.getTextElement(driver,"//div[@class='no-result']" );
 		if (messString.equals("Product names cannot contain special characters.")) {
@@ -234,6 +234,91 @@ public class TS_TestingResultExcel extends BaseTest {
 		} else {
 			ExcelUtilResult.setCellData("Failed", 5, 5);
 		}
+	}
+
+	@Test
+	public void TC_06_AddProductToWishLishExcelResult() throws IOException {
+		ExcelUtilResult.setExcelFile("Auto");
+		
+		searchPage.openUrl(driver, "https://demo.nopcommerce.com/search");
+		
+		searchPage.inputToSearchTextBox("computer");
+		searchPage.clickToSearchButton();
+		
+//		sleepInSecond(3000);
+		
+		wishLishPage.clickToProductComuter();
+		wishLishPage.clickToHDD320GBRadioButton();
+		wishLishPage.clickToAddToWishListButton();
+		
+//		sleepInSecond(3000);
+		
+		String messString = searchPage.getTextElement(driver,"//p[text()='Please select RAM']" );
+		if (messString.equals("Please select RAM")) {
+			ExcelUtilResult.setCellData("Passed", 6, 5);
+		} else {
+			ExcelUtilResult.setCellData("Failed", 6, 5);
+		}
+	}
+	
+	@Test
+	public void TC_07_UpdateProductInShoppingCartExcelResult() throws IOException {
+		ExcelUtilResult.setExcelFile("Auto");
+		
+		// Add sản phẩm lenovo vào wishlish
+		wishLishPage.inputToSearchTextBox("lenovo");
+		wishLishPage.clickToSearchButton();
+		
+//		sleepInSecond(3000);
+		wishLishPage.clickToProduct();
+
+//		sleepInSecond(3000);
+		wishLishPage.clickToAddToWishList();
+		
+//		sleepInSecond(3000);
+		Assert.assertTrue(wishLishPage.isAddToWishListMessage("The product has been added to your wishlist"));
+
+		wishLishPage.clickToCloseSpanMessage();
+//		sleepInSecond(3000);
+
+		driver.get("https://demo.nopcommerce.com/");
+		wishLishPage.clickToWishListLabel();
+
+//		sleepInSecond(3000);
+		Assert.assertTrue(wishLishPage.isProductAddToWishListSuccess("Lenovo IdeaCentre 600 All-in-One PC"));
+		
+		// Add sản phẩm lenovo từ wishlist vào shopping cart
+		wishLishPage.clickToWishListLabel();
+		wishLishPage.clickToAddToCartCheckBox();
+
+//		sleepInSecond(3000);
+		wishLishPage.clickToAddToCartButton();
+		
+//		sleepInSecond(3000);
+		Assert.assertTrue(wishLishPage.isProductAddToWishListSuccess("Lenovo IdeaCentre 600 All-in-One PC"));
+
+//		sleepInSecond(3000);
+		wishLishPage.clickToWishListLabel();
+		
+//		sleepInSecond(3000);
+		Assert.assertTrue(wishLishPage.isNoDataInWishListMessage("The wishlist is empty!"));
+		
+		// Update số lượng trong shopping cart
+		shoppingCartPage.clickToShoppingCartLabel();
+		shoppingCartPage.clickToQuantityShoppingCartTextBox("năm");
+//		sleepInSecond(3000);
+		
+		shoppingCartPage.clickToUpdateShoppingCartButton();
+
+//		sleepInSecond(3000);
+		
+		String messString = shoppingCartPage.getTextElement(driver,"//input[@value='1']" );
+		if (messString.equals("năm")) {
+			ExcelUtilResult.setCellData("Passed", 7, 5);
+		} else {
+			ExcelUtilResult.setCellData("Failed", 7, 5);
+		}
+		
 	}
 	
 }

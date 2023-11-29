@@ -25,6 +25,10 @@ public class WishListPageObject extends BasePage {
 	public void clickToProduct() {
 		clickToElement(driver, WishListPageUI.WISHLIST_SEARCH_LENOVO_TEXT);
 	}
+	
+	public void clickToProductComuter() {
+		clickToElement(driver, WishListPageUI.WISHLIST_SEARCH_COMPUTER_TEXT);
+	}
 
 	public void clickToAddToWishList() {
 		clickToElement(driver, WishListPageUI.WISHLIST_ADDTO_BUTTON);
@@ -40,6 +44,14 @@ public class WishListPageObject extends BasePage {
 
 	public void clickToAddToCartButton() {
 		clickToElement(driver, WishListPageUI.WISTHLIST_ADDTO_CART_BUTTON);
+	}
+
+	public void clickToAddToWishListButton() {
+		clickToElement(driver, WishListPageUI.WISTHLIST_COMPUTER_ADDTO_WISHLIST_BUTTON);
+	}
+	
+	public void clickToHDD320GBRadioButton() {
+		clickToElement(driver, WishListPageUI.WISTHLIST_COMPUTER_RADIO_320GB_BUTTON);
 	}
 
 	public void clickToAddToCartCheckBox() {
